@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Vue</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <style>
+        div {
+            padding: 10px;
+        }
+        .btn {
+            cursor: pointer;
+        }
+        .root {
+            background-color: blanchedalmond;
+        }
+
+        .firstSub {
+            background-color: aqua;
+        }
+
+        .secondSub {
+            background-color: aliceblue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app"></div>
+
+</body>
+
+<script type="text/x-template" id="rootTemplate">
+    <div class="container root">
+        <h1>Simple Vue Example</h1>
+        <span>{{ subheader }}</span>
+            <first-sub></first-sub>
+    </div>
+</script>
+
+<script type="text/x-template" id="fistSubComponentTemplate">
+    <div class="firstSub">
+        <p>Inside first Sub Component</p>
+        <p>Count: {{ count }}</p>
+        <div class="btn btn-primary" @click="increment()">increment</div>
+        <second-sub :number="count"></second-sub>
+    </div>
+</script>
+
+<script type="text/x-template" id="secondSubComponentTemplate">
+    <div class="secondSub">
+        <p>Inside second Sub Component</p>
+        <p>Doubled number: {{ doubledNumber }}</p>
+    </div>
+</script>
+
+<script src="https://unpkg.com/vue@2.4.4/dist/vue.js"></script>
+<script src="js/firstSubComponent.js"></script>
+<script src="js/secondSubComponent.js"></script>
+<script src="js/app.js"></script>
+</html>
